@@ -1,17 +1,16 @@
-//las importaciones siempre van al principio del archivo
- 
- import { Todo } from './classes/todo.class';
 import './styles.css';
-
-//en los llaves se pone lo que se quiere llamar
-//si quieres llamar todo le pones ?
-
-
+import { TodoList } from './classes/todo-list.class';
+import { Todo } from './classes/todo.class';
+import { crearTodoHtml } from './js/componentes';
 
 
-
-
-
+const todoList=new TodoList();
 const tarea=new Todo ('Aprender JavaScrip');
+todoList.nuevoTodo(tarea);
 
-console.log (tarea);
+console.log (todoList);
+
+
+
+
+crearTodoHtml(tarea);
