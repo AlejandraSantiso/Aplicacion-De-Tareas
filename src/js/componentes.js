@@ -40,15 +40,19 @@ txtInput.addEventListener('keyup',(event)=>{
 divTodoList.addEventListener('click', (event)=>{
     const nombreElemento=event.target.localName;
     const todoElemento=event.target.parentElement.parentElement;
-    const todoId=todoElemento.getAtribute('data-id');
+    const todoId=todoElemento.getAttribute('data-id');
 
     if (nombreElemento.includes('input')){
         todoList.marcarCompletado(todoId);
 
         todoElemento.classlist.toggle('completed');
-
-     
+    
     }  
 
+    else if (nombreElemento.includes('button')){
+        todoList.eliminarTodo(todoId);
+        divTodoList.removeChild(todoElemento);      
+    
+    }
 
 });
