@@ -2,9 +2,9 @@ import { todoList } from "..";
 import { Todo } from "../classes/todo.class";
 
 // Referencias HTML
-const divTodoList=document.querySelector('.todo-list');
-const txtInput=document.querySelector('.new-todo');
-
+const divTodoList   =document.querySelector('.todo-list');
+const txtInput      =document.querySelector('.new-todo');
+const btnClear      =docuemnt.querySelector ('.clear-completed');
 
 export const crearTodoHtml=(todo) =>{
     const htmlTodo=`
@@ -55,4 +55,9 @@ divTodoList.addEventListener('click', (event)=>{
     
     }
 
+});
+
+btnBorrar.addEventListener('click',()=>{
+
+    todoList.eliminarCompletados();
 });
