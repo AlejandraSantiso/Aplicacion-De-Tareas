@@ -1,5 +1,3 @@
-import { Todo } from "./todo.class";
-
 export class TodoList{
     constructor(){
         this.todos=[];
@@ -10,30 +8,23 @@ export class TodoList{
     }
 
     eliminarTodo(id){
-
         this.todos=this.todos.filter(todo => todo.id!=id);
-        
     }
 
     marcarCompletado(id){
 
-        for (let i=0;i<this.todos.length;i++){
-            
-           //const todo=this.todos[i];
 
-            if (id==this.todos[id].id){
-                 this.todos[i].completado=!this.todos[i].completado;
+        for (let i=0;i<this.todos.length;i++){
+            // const todo=this.todos[i];
+            if (id==this.todos[i].id){
+                this.todos[i].completado=!this.todos[i].completado;
 
                 break;
             }
-
-            console.log(this.todos[i]);
         }
-    };
+    }
 
     eliminarCompletados(){
-
         this.todos=this.todos.filter(todo => !todo.completado);
-
     }
 }

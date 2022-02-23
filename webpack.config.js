@@ -2,68 +2,49 @@ const HtmlWebpack=require('html-webpack-plugin');
 const MiniCssExtract = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
-//aca estamos importanto ese plugin para usarlo 
-
-
 module.exports={
-
     mode: 'development',
-    output: {
+    output:{
         clean:true
     },
     module:{
         rules:[
-            { 
+            {
                 test:/\.html$/,
-                loader: 'html-loader',
+                loader:'html-loader',
                 options:{
                     sources:false
                 }
-
             },
-
             {
-
-                test: /\.css$/,
-                exclude: /styles.css$/,
+                test:/\.css$/,
+                exclude:/styles.css$/,
                 use:['style-loader','css-loader']
             },
             {
-
                 test:/styles.css$/,
                 use:[MiniCssExtract.loader,'css-loader']
             },
-            
             {
-                test:/\.(png|jpe?g|gif|swg)$/,
-                loader: 'file-loader'
+                test:/\.(png|jpe?g|gif|svg)$/,
+                loader:'file-loader'
             }
         ],
     },
-    optimization: {},
+    optimization:{},
     plugins:[
-        new HtmlWebpack ({
-
-            title: 'Mi primer webpack',
+        new HtmlWebpack({
+            title:'Mi primer webpack',
             template:'./src/index.html'
-            
         }),
-        new MiniCssExtract ({
+        new MiniCssExtract({
             filename:'[name].css',
-            ignoreOrder: false
+            ignoreOrder:false
         }),
-
-        new CopyPlugin ({
-
-            patterns: [
+        new CopyPlugin({
+            patterns:[
                 {from:'src/assets',to:'assets'}
             ]
-        })     
-           
-
+        })
     ]
-
 }
-
-
-//hasch es una 
